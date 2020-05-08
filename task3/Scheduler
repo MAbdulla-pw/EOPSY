@@ -1,0 +1,43 @@
+Operating Systems
+Task 3: Scheduling.
+Supervised by: Figat Maksym.
+Done by: Abdulla, Mahmood (302840)
+
+
+Task:
+Is to run a configuration file that runs a number of process for a given time with a variety of parameters.
+The given parameters are: Average run time (2000 milliseconds), Standard deviation of zero, block time for I/O every 500 milliseconds.
+The total run time of execution cannot exceed 10000 milliseconds.
+The configuration file will run using 2, 5 and 10 process, which will have a results output file that differs in every execution.
+
+First simulation (2 Processes):
+_______________________________ 
+From the results output file, we can notice that the simulation run time did not use the total simulation time given in the
+configuration file, that is because every process only needs 2000 millisecond (total 4000 milliseconds for both).
+The CPU blocked each process three times and just before blocking them for the fourth time, the processes were done running.
+
+
+
+
+Second simulation (5 processes):
+________________________________
+ 
+In the second simulation, the whole run time specified were used, that is due to the processes total run time is equal to the
+simulation run time. As mentioned in the previous simulation, the number of times a process was blocked is three before it finished
+running successfully.
+
+
+
+
+Third Simulation (10 processes):
+_______________________________ 
+
+In the third simulations things were a bit different, we can notice that only 4 processes has finished running 
+completely (processes 0 to 3), while two process completed only half the time it has to run (processes 4 and 5) and 
+processes beyond process five did not get a chance to run at all. 
+The first four processes has sufficient time to complete running successfully, while processes 4 and 5 were interrupted before
+finishing because the total run time for the simulation was up before completion, and finally the last 4 processes did not start
+at all because the simulation time has ended before any of those has a chance to start.
+
+
+
