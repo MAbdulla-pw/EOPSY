@@ -10,6 +10,19 @@ The given parameters are: Average run time (2000 milliseconds), Standard deviati
 The total run time of execution cannot exceed 10000 milliseconds.
 The configuration file will run using 2, 5 and 10 process, which will have a results output file that differs in every execution.
 
+//-------------------------------------------------------------------------------------------------------------------------
+Process States:
+Based on this task, it is noticeable that the processes go through different states that is controlled by the scheduler,
+these states are:
+- Created: It is the instance of creating the process.
+- Running: The process started running and it is executing the instruction(s).
+- Blocked: The process has been blocked from running before it finished executing.
+- Waiting: After being blocked, the process goes to the waiting state and waits for the scheduler to resume.
+- Terminated: The process is terminated after finishing its running time.
+//-------------------------------------------------------------------------------------------------------------------------
+
+
+
 First simulation (2 Processes):
 _______________________________ 
 From the results output file, we can notice that the simulation run time did not use the total simulation time given in the
