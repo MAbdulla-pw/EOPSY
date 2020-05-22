@@ -1,0 +1,64 @@
+Task:
+To test the memory management algorithm, for physical and virtual memory allocations, using a simulator given by the instructor.
+The task also includes predicting the virtual page that causes the error and to figure out the replacement algorithm used in the simulator.
+
+Introduction:
+At the beginning, we need to define the replacement algorithms/mechanisms used in memory management to carry out with the simulation.
+
+Page Replacement Algorithms:
+The page replacement algorithm decides which memory page is to be replaced. Page replacement is done when the requested page is not found in the main memory (page fault).
+1-	 First In First Out (FIFO): In this algorithm, the operating system keeps track of all pages in the memory in a queue, the oldest page is in the front of the queue. When a page needs to be replaced page in the front of the queue is selected for removal.
+2-	Optimal Page replacement: In this algorithm, pages are replaced which would not be used for the longest duration of time in the future.
+3-	Least Recently Used: In this algorithm page will be replaced which is least recently used.
+
+The Simulation:
+Before running the simulation, I had to modify the commands file to add more reads and writes to the simulation to have a 
+better understanding. The reads and writes were given to a random address in the memory, but the last read was from the first
+memory page to verify the replacement algorithm in which I will demonstrate in this report.
+
+
+Commands file:
+1# READ bin 100
+2# READ 19
+3# WRITE hex CC32
+4# READ bin 100000000000000
+5# READ bin 100000000000000
+6# WRITE bin 110000000000001
+7# WRITE random
+8# READ random
+9# WRITE random
+10# READ random
+11# WRITE random
+12# READ random
+13# WRITE random
+14# READ bin 0001
+
+When the simulator ran lines 1 to 6 from the commands line, there were no page faults, the reason behind that is that the addresses given in those read and write lines did not exceed the physical page 31 (minimum page no. 0 and maximum is 3 accessed), and the faults were recognizable in all page attempts beyond page number 31.
+
+
+
+
+
+
+
+
+
+
+The first random address (9a49e) write at line 7, was within the range of virtual memory page 38 that does not have a physical page. We notice the screenshot (1st_page_fault) that physical page 0 was replaced for this virtual memory page.
+ 
+
+
+
+
+
+
+
+
+In the next step in the simulation (line 8), the simulation runs into another page fault trying to read from page 35. We also notice from the screenshot (2nd_page_fault) that the algorithm for replacing the pages chose page 1.
+ 
+The page faults continued with the reads and writes in commands file whenever the access were in any page beyond 31.
+For the last line in the command file, I tried to demonstrate what would happened if we try to read from the page 0 that is already allocated to virtual page 38, and the result was in another page fault because of the allocation done earlier. The screenshot (Final_replacement) shows that page 4 was replaced by the algorithm.
+ 
+
+In Conclusion:
+Based on the definitions given earlier in this report, the replacement algorithm used in this simulator is first in first out (FIFO).
